@@ -1,0 +1,85 @@
+generated: '2026-07-31'
+method: probed
+source: https://www.atherenergy.com
+host: https://www.atherenergy.com
+summary:
+  documents_found: 1
+  note: >-
+    The corporate host (www.atherenergy.com) serves NO RFC 8615 well-known discovery
+    documents — every /.well-known/* path returns the Next.js 404 HTML page. It does
+    publish a curated /llms.txt (captured in llms/ather-energy-llms.txt) and a
+    /robots.txt that explicitly allows GPTBot, ChatGPT-User, Google-Extended,
+    ClaudeBot and PerplexityBot while disallowing CCBot and /api/.
+    The ONE real well-known document Ather serves is on the commerce host:
+    https://shop.atherenergy.com/.well-known/ucp — a Universal Commerce Protocol
+    merchant profile (HTTP 200, application/json) declaring an MCP shopping endpoint,
+    eight capabilities and two payment handlers. Saved verbatim as
+    ather-energy-shop-ucp.json and profiled in mcp/ather-energy-mcp.yml.
+documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+shop_host:
+  host: https://shop.atherenergy.com
+  platform: Shopify
+  documents:
+    - path: /.well-known/ucp
+      status: 200
+      content_type: application/json
+      file: ather-energy-shop-ucp.json
+      standard: Universal Commerce Protocol (UCP) 2026-04-08
+      declares_mcp_endpoint: https://shop.atherenergy.com/api/ucp/mcp
+    - path: /.well-known/agent-card.json
+      status: 404
+    - path: /.well-known/agent.json
+      status: 404
+    - path: /.well-known/security.txt
+      status: 404
+    - path: /llms.txt
+      status: 200
+      content_type: text/markdown
+      file: ../llms/ather-energy-shop-llms.txt
+    - path: /agents.md
+      status: 200
+      content_type: text/markdown
+      file: ../llms/ather-energy-shop-agents.md
+    - path: /openapi.json
+      status: 404
+other_hosts_probed:
+  - host: https://atherenergy.com
+    paths: ['/.well-known/security.txt']
+    status: 404
+  - host: https://careers.atherenergy.com
+    paths: ['/.well-known/agent-card.json', '/.well-known/agent.json', '/.well-known/security.txt', '/llms.txt', '/openapi.json']
+    status: 404
+  - host: api.atherenergy.com
+    status: NXDOMAIN
+  - host: developer.atherenergy.com
+    status: NXDOMAIN
+  - host: developers.atherenergy.com
+    status: NXDOMAIN
+  - host: docs.atherenergy.com
+    status: NXDOMAIN
+non_well_known_agent_surface:
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/ather-energy-llms.txt
+  - path: /robots.txt
+    status: 200
+    content_type: text/plain
+    note: named-crawler allowlist for GPTBot, ChatGPT-User, Google-Extended, ClaudeBot, PerplexityBot; CCBot disallowed
+x-evidence:
+  fetched: '2026-07-31'
+  method: HTTP GET, curl, following redirects

@@ -1,0 +1,53 @@
+# Ather Energy
+
+> Ather Energy is a leading Indian electric scooter manufacturer specializing in high-performance and family-oriented smart scooters, a widespread public fast-charging network (Ather Grid), and a proprietary software ecosystem (AtherStack). 
+
+## Core Products
+- [Ather 450 (Performance electric scooters)](https://www.atherenergy.com/450) - Benchmarked for urban performance; includes variants like the 450S (essential), 450X (flagship), and 450 Apex (peak performance). 
+- [Ather Rizta (Family electric scooter)](https://www.atherenergy.com/rizta) - Designed for comfort and utility; features a large seat, 34L underseat storage, and variants like Rizta S and Rizta Z. 
+
+## Software & Intelligence (AtherStack)
+- [AtherStack](https://www.atherenergy.com/atherstack) - The Brain of Ather's Scooters. AtherStack is more than just an operating system; it's the core architecture that powers every aspect of the scooter's functionality, from the hardware to the user interface. It is the reason Ather scooters are considered "intelligent." Ather continuously updates AtherStack through over-the-air (OTA) updates, a feature that keeps the scooters' features and performance on the cutting edge.
+- **AtherStack Pro** - AtherStack Pro is an optional, but recommended add-on package of advanced features that unlocks the full smart and connected potential of your Ather scooter. Opting for AtherStack Pro enhances the scooter with a range of convenience, comfort, and safety features and also provides a complementary upgrade on your battery warranty to 5 years or 60,000 km (whichever comes first). A premium subscription that enables - Onboard Navigation, Features like Magic Twist™ and Multi-Mode Traction Control, Safety and Convenience features like AutoHold™ and FallSafe™, Enhanced Connectivity with ability to manage Call & Music control from the dashboard, use Alexa Skills for voice commands, and get WhatsApp on dashboard previews, the ability to use the Document Storage feature on the scooter's dashboard, Access to all future OTA (Over-the-Air) updates and Opting for AtherStack Pro includes a complimentary upgrade to the battery warranty, extending it to 5 years or 60,000 km. It also makes you eligible to purchase a further extended warranty of up to 8 years or 80,000 km for an additional cost of ₹ 4,999.
+- **AtherStack 7.0** - Latest major update introducing AI powered voice commands, Pothole Alerts, and Crash Alerts.
+
+## Charging Options
+- [Ather Grid](https://www.atherenergy.com/charging) - The Ather Grid is India’s largest two-wheeler fast-charging network with 5,000+ points. It allows you to quickly top up your scooter's battery, adding about up to 30 km of range in just 10 minutes of charging.
+- [Home & Portable Charging](https://shop.atherenergy.com/collections/ather-accessories/products/ather-duo-charger) - Solutions including the Ather Duo (fixed/portable hybrid) and optimized overnight charging.
+
+## Ownership & Service Programs
+- [Ather Battery Warranty (Eight70)](https://atherenergy.com/ather-battery-warranty) - Industry-first 8-year/80,000 km battery warranty with 70% battery health assurance. Includes features such as 100% coverage against defect & failures, Idle state assurance, and no upper limit claims.
+- [Assured Buyback](https://www.atherenergy.com/ather-assured-buyback) - The Ather Assured Buyback Program is an initiative that provides Ather scooter owners with a guaranteed future buyback value for their vehicle. This program is designed to give customers peace of mind and an easy option to upgrade to a newer model or sell their scooter for a predetermined value. Up to 60% of the effective ex-showroom price at the end of 36 months from the invoice date. Up to 50% of the effective ex-showroom price at the end of 48 months from the invoice date.
+- **Roadside Assistance** - 24/7 support for breakdowns, flat tires, and charge runouts. The Ather RSA (Roadside Assistance) program is a service offered by Ather Energy to provide support to its electric scooter owners in case of a breakdown or emergency. It is a paid subscription-based service that needs to be purchased separately from the scooter.
+
+## Shop & Gear
+- [Ather Shop](https://shop.atherenergy.com/) - Official portal for accessories, merchandise and smart helmets.
+- [Halo Smart Helmets](https://shop.atherenergy.com/products/halo-smart-helmets) - Smart helmets featuring auto wear-detect, wireless charging, call & music control and Ather ChitChat™.
+- [Essentials/Accessories](https://shop.atherenergy.com/collections/ather-accessories) - Functional upgrades like the Ather Frunk (front storage), TPMS, and BodyGuards.
+## Company & Vision
+- [About Ather Energy](https://www.atherenergy.com/about) - Ather Energy is a prominent Indian electric two-wheeler manufacturer headquartered in Bengaluru. Founded in 2013 by Tarun Mehta and Swapnil Jain, alumni of IIT Madras, the company is dedicated to building smart electric scooters designed from scratch for the Indian market.
+    - **Engineering Philosophy:** Ather emphasizes a deep integration of technology, performance, and user experience, treating its scooters as intelligent devices rather than just vehicles.
+    - **AtherStack Architecture:** Every scooter is powered by AtherStack, a proprietary core architecture that controls everything from hardware management to the interactive touchscreen dashboard and user interface.
+    - **Continuous Evolution:** Through Over-the-Air (OTA) updates, Ather scooters are designed to improve over time, adding new features such as the AtherStack 7.0 update which introduced LLM-powered voice commands, Pothole Alerts, and Crash Alerts.
+    - **Ecosystem Advantage:** Beyond vehicles, Ather operates the Ather Grid, India’s largest two-wheeler fast-charging network with over 4,500 points, and a comprehensive service network of 350+ centers.
+    - **Innovative Ownership:** The company offers industry-first programs like the "Eight70" battery warranty (8-year coverage with 70% health assurance), Battery as a Service (BaaS) to reduce upfront costs, and Assured Buyback rates of up to 60% after three years.
+    - **Future Platforms:** As showcased at Community Day 2025, Ather is developing the EL platform (EL01), a next-generation architecture built on data from over 760 crore kilometers of field use to optimize manufacturing and service.
+
+## How to Buy
+Experience the seamless journey from discovery to ownership. Ather provides multiple digital and physical touchpoints to help you choose, test, and book your smart electric scooter.
+- [Book a Test Ride](https://www.atherenergy.com/testride) - Experience the performance and "magical" ride quality of the [Ather 450](https://www.atherenergy.com/testride/450x) or the comfort of the [Ather Rizta](https://www.atherenergy.com/testride/rizta) firsthand. 
+    - **Home Test Ride:** In many cities, you can schedule a test ride at your doorstep for ultimate convenience.
+    - **What to bring:** Ensure you have a valid Driving License and a helmet for your test ride.
+
+- [Find a Dealer / Experience Center / Showroom](https://www.atherenergy.com/locate-ather-dealer) - Locate your nearest "Ather Space" to see the scooters in person, speak with product specialists, and explore the ather ecosystem. 
+    - **Hyperlocal Search:** Use the locator to find city-specific pricing, dealer operating hours, and contact details.
+    - **Expert Consultation:** Get a detailed overview of products, financing options, and the paperwork required for purchase.
+
+- **Configure & Book Now** - Finalize your commitment by selecting your preferred model, variant, and color for [Ather 450](https://www.atherenergy.com/product/scooter/book/450) and [Ather Rizta](https://www.atherenergy.com/product/scooter/book/rizta).
+    - [Ather 450 Configurator](https://www.atherenergy.com/450/configurator): Use the interactive tool to compare variants (like the 450X vs. 450S) and see the on-road price impact of upgrades like the Pro Pack, Eight70 warranty, etc for Ather 450.
+    - [Ather Rizta Configurator](https://www.atherenergy.com/rizta/configurator): Use the interactive tool to compare variants (like the Rizta S vs. Rizta Z) and see the on-road price impact of upgrades like the Pro Pack, Eight70 warranty, etc for Ather Rizta.
+    - [Ather flexipay](https://www.atherenergy.com/flexipay): Explore financing options including EMI calculators, 0% down payment plans, and exchange offers for your old petrol scooter.
+    - **Booking Process:** Complete your booking with a small token amount of ₹999 to secure your priority delivery slot.
+
+- [Savings Calculator](https://www.atherenergy.com/tco) - Use the Total Cost of Ownership (TCO) tool to calculate exactly how much you will save on fuel and maintenance by switching to an Ather electric scooter.
+- [EMI Calculator](https://www.atherenergy.com/electric-scooter-emi-calculator) - Use the Total EMI calculator tool to calculate exact monthly payment based on your preferred product, down payment, finance partners (e.g. HDFC, ICICI Bank, AXIS Bank, Bajaj Finserv, IDFC, Bank of Baroda, etc.).

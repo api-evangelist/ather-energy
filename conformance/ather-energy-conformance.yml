@@ -1,0 +1,66 @@
+generated: '2026-07-31'
+method: derived
+source: well-known/ather-energy-shop-ucp.json
+note: >-
+  Derived from the standards Ather's own UCP merchant profile and llms.txt declare.
+  No published compliance program (SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP) was found
+  for Ather Energy, so no `Compliance` pointer is wired in apis.yml.
+standards:
+- id: ucp-2026-04-08
+  name: Universal Commerce Protocol
+  conforms: true
+  version: '2026-04-08'
+  evidence: '/.well-known/ucp declares ucp.version 2026-04-08 and supported_versions 2026-04-08, 2026-01-23'
+- id: mcp
+  name: Model Context Protocol
+  conforms: true
+  evidence: 'UCP shopping service declares transport "mcp" at https://shop.atherenergy.com/api/ucp/mcp'
+- id: json-rpc-2.0
+  name: JSON-RPC 2.0
+  conforms: true
+  evidence: MCP endpoint returns JSON-RPC 2.0 envelopes (observed error -32001)
+- id: openrpc
+  name: OpenRPC
+  conforms: true
+  evidence: 'merchant profile references https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json as the tool schema'
+- id: llmstxt
+  name: llms.txt
+  conforms: true
+  evidence: 'HTTP 200 at https://www.atherenergy.com/llms.txt and https://shop.atherenergy.com/llms.txt'
+- id: rfc8615-well-known
+  name: Well-Known URIs
+  conforms: partial
+  evidence: '/.well-known/ucp served on shop host; no well-known documents on the corporate host'
+- id: rfc9116-security-txt
+  name: security.txt
+  conforms: false
+  evidence: '/.well-known/security.txt returns 404 on every Ather host despite a published disclosure program'
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: '/.well-known/agent-card.json and /.well-known/agent.json return 404 on every Ather host'
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: no OpenAPI or Swagger document found on any Ather host or in the AtherEnergy GitHub organisation
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: no event, streaming or webhook surface is published
+- id: rfc9457-problem-details
+  name: Problem Details for HTTP APIs
+  conforms: false
+  evidence: errors are JSON-RPC envelopes, not application/problem+json
+- id: oauth2
+  name: OAuth 2.0
+  conforms: false
+  evidence: no OAuth authorization server or oauth2 security scheme published
+- id: ocpi
+  name: Open Charge Point Interface
+  conforms: unverified
+  evidence: >-
+    Ather Grid appears as a participating CPO network in third-party OCPI 2.2.1
+    aggregation (One Bharat Charge), but Ather publishes no OCPI endpoint, credential
+    flow or documentation of its own. Recorded as unverified rather than conforming.
+x-evidence:
+  fetched: '2026-07-31'

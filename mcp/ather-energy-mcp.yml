@@ -1,0 +1,122 @@
+generated: '2026-07-31'
+method: probed
+status: published
+source: https://shop.atherenergy.com/.well-known/ucp
+server:
+  name: ather-shop-ucp
+  title: Ather Shop — Universal Commerce Protocol (UCP) shopping service
+  transport: http
+  url: https://shop.atherenergy.com/api/ucp/mcp
+  canonical_url: https://ather-energy.myshopify.com/api/ucp/mcp
+  discovery: https://shop.atherenergy.com/.well-known/ucp
+  discovery_file: ../well-known/ather-energy-shop-ucp.json
+  protocol: Universal Commerce Protocol (UCP)
+  protocol_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  protocol_spec: https://ucp.dev/2026-04-08/specification/overview/
+  tool_schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  platform: Shopify
+  first_party: partial
+  note: >-
+    This is a real, live MCP endpoint served from an Ather-owned host
+    (shop.atherenergy.com) and advertised by Ather's own /.well-known/ucp merchant
+    profile and /llms.txt. The MCP server itself is provided by the Shopify commerce
+    platform rather than written by Ather — the merchant profile, the store catalog,
+    the payment handlers and the merchant identity are Ather's; the tool surface and
+    its schemas are UCP/Shopify's. It is the ONLY machine-callable API surface
+    Ather Energy exposes anywhere. Ather publishes no developer API of its own.
+introspection:
+  tools_list_attempted: true
+  http_status: 422
+  error_code: -32001
+  error: UCP discovery failed — invalid_profile_url ("Missing profile uri")
+  gated: true
+  gate: >-
+    The endpoint requires a registered UCP agent profile URI on the request before it
+    will answer initialize or tools/list. Anonymous introspection is refused, so the
+    real per-tool inputSchema could not be captured. Tool names and descriptions below
+    come from Ather's own published /llms.txt and /agents.md; their input contracts are
+    defined by the UCP shopping OpenRPC schema referenced in the merchant profile.
+tools:
+- name: search_catalog
+  description: Find products in the Ather Shop catalog matching a buyer's intent.
+  capability: dev.ucp.shopping.catalog.search
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/catalog_search.json
+  source: https://shop.atherenergy.com/llms.txt
+- name: create_cart
+  description: Create a cart and add the desired items.
+  capability: dev.ucp.shopping.cart
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/cart.json
+  source: https://shop.atherenergy.com/llms.txt
+- name: create_checkout
+  description: Start the purchase flow for a cart.
+  capability: dev.ucp.shopping.checkout
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json
+  source: https://shop.atherenergy.com/llms.txt
+- name: update_checkout
+  description: Set the shipping address and shipping method on a checkout.
+  capability: dev.ucp.shopping.fulfillment
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/fulfillment.json
+  source: https://shop.atherenergy.com/llms.txt
+- name: complete_checkout
+  description: Finalize the purchase. The buyer must explicitly approve payment.
+  capability: dev.ucp.shopping.checkout
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json
+  source: https://shop.atherenergy.com/llms.txt
+capabilities_advertised:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+payment_handlers:
+- id: gpay
+  handler: com.google.pay
+  version: '2026-01-11'
+  merchant_name: Ather Shop
+  merchant_origin: shop.atherenergy.com
+  card_networks: [VISA, MASTERCARD, AMEX, DISCOVER]
+- id: shopify.card
+  handler: dev.shopify.card
+  version: '2026-01-15'
+  card_brands: [visa, master, american_express, discover, diners_club]
+human_in_the_loop:
+  required: true
+  rule: >-
+    "Checkout requires human approval. Agents must not complete payment without
+    explicit buyer consent." — published verbatim at https://shop.atherenergy.com/llms.txt
+rate_limits:
+  documented: true
+  detail: The MCP endpoint is rate-limited per IP; agents are instructed to back off on 429.
+read_only_surface:
+  note: >-
+    Shopify's unauthenticated JSON endpoints on the same host, documented by Ather's
+    own agents.md. No OpenAPI is published for them.
+  endpoints:
+  - GET /collections/all
+  - GET /products/{handle}
+  - GET /products/{handle}.json
+  - GET /collections/{handle}
+  - GET /collections/{handle}/products.json
+  - GET /search?q={query}&type=product
+  - GET /sitemap.xml
+x-evidence:
+  fetched: '2026-07-31'
+  probes:
+  - url: https://shop.atherenergy.com/.well-known/ucp
+    http_status: 200
+    content_type: application/json
+  - url: https://shop.atherenergy.com/llms.txt
+    http_status: 200
+    content_type: text/markdown
+  - url: https://shop.atherenergy.com/agents.md
+    http_status: 200
+    content_type: text/markdown
+  - url: https://shop.atherenergy.com/api/ucp/mcp
+    method: 'POST tools/list'
+    http_status: 422
+    content_type: application/json

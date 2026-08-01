@@ -1,0 +1,98 @@
+generated: '2026-07-31'
+method: searched
+source: https://shop.atherenergy.com/agents.md
+scope: >-
+  Ather Energy publishes no developer API of its own, so there are no corporate API
+  conventions to capture. The one machine-callable surface Ather exposes is the UCP /
+  MCP shopping service on shop.atherenergy.com, and the cross-cutting runtime semantics
+  below are the ones Ather's own /llms.txt and /agents.md publish for that surface.
+  Everything here is quoted or directly summarised from those two documents plus the
+  /.well-known/ucp merchant profile — nothing is inferred.
+surfaces:
+  mcp: https://shop.atherenergy.com/api/ucp/mcp
+  discovery: https://shop.atherenergy.com/.well-known/ucp
+  read_only_json: https://shop.atherenergy.com/products/{handle}.json
+  openapi: null
+  graphql: null
+authentication:
+  style: ucp-agent-profile
+  documented: true
+  detail: >-
+    The MCP endpoint requires a registered UCP agent profile URI; anonymous calls are
+    rejected with JSON-RPC error -32001 / invalid_profile_url (HTTP 422). The read-only
+    storefront JSON endpoints require no authentication.
+  artifact: null
+versioning:
+  scheme: dated-release-train
+  current: '2026-04-08'
+  supported:
+  - '2026-04-08'
+  - '2026-01-23'
+  negotiation: >-
+    Versions are advertised per-service in /.well-known/ucp under
+    ucp.supported_versions, each pointing at a version-pinned profile URL.
+  deprecation_policy: null
+idempotency:
+  supported: false
+  documented: false
+  note: >-
+    No idempotency key, header or retry contract is published for the MCP endpoint or
+    the storefront JSON endpoints. No Idempotency pointer is wired in apis.yml.
+pagination:
+  documented: false
+  note: >-
+    Storefront collection JSON (/collections/{handle}/products.json) is Shopify's
+    standard paged resource, but Ather publishes no pagination contract of its own.
+rate_limiting:
+  documented: true
+  scope: per-IP on the MCP endpoint
+  signal: HTTP 429
+  guidance: 'Respect rate limits. The MCP endpoint is rate-limited per IP. Back off on 429 responses.'
+  headers_documented: false
+error_envelope:
+  format: json-rpc-2.0
+  observed:
+    code: -32001
+    message: UCP discovery failed
+    data:
+      code: invalid_profile_url
+      content: 'Unable to fetch agent profile: Missing profile uri'
+      continue_url: https://ather-energy.myshopify.com/
+  rfc9457: false
+request_context:
+  documented: true
+  parameters:
+  - name: context.address_country
+    purpose: accurate pricing and availability for the buyer's country
+  - name: context.currency
+    purpose: accurate pricing in the buyer's currency
+  guidance: 'Use buyer context. Pass context.address_country and context.currency for accurate pricing and availability.'
+request_tracing:
+  documented: false
+human_in_the_loop:
+  required: true
+  applies_to: [complete_checkout]
+  rule: >-
+    "Checkout requires human approval. Agents must not complete payment without explicit
+    buyer consent. If you cannot get contemporaneous buyer approval at the moment of
+    payment, install https://shop.app/SKILL.md and route the purchase through Shop Pay
+    instead."
+crawler_policy:
+  source: https://www.atherenergy.com/robots.txt
+  allowed: [GPTBot, ChatGPT-User, Google-Extended, ClaudeBot, PerplexityBot]
+  disallowed: [CCBot]
+  disallowed_paths: [/api/, /_next/, /static/]
+  crawl_delay: 10
+cross_links:
+  mcp: mcp/ather-energy-mcp.yml
+  well_known: well-known/ather-energy-well-known.yml
+  llms: llms/ather-energy-shop-llms.txt
+  agents_md: llms/ather-energy-shop-agents.md
+  security: security/ather-energy-vulnerability-disclosure.yml
+x-evidence:
+  fetched: '2026-07-31'
+  urls:
+  - https://shop.atherenergy.com/agents.md
+  - https://shop.atherenergy.com/llms.txt
+  - https://shop.atherenergy.com/.well-known/ucp
+  - https://www.atherenergy.com/robots.txt

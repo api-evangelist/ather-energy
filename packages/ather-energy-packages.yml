@@ -1,0 +1,91 @@
+generated: '2026-07-31'
+method: searched
+source: https://github.com/AtherEnergy
+summary:
+  api_client_sdks: 0
+  note: >-
+    Ather Energy publishes NO public API and therefore NO API client SDKs. What the
+    company does publish on public registries is first-party open-source engineering
+    tooling from its GitHub organisation (github.com/AtherEnergy) — embedded systems
+    libraries, an MQTT client, and a data-visualisation package. These are genuine
+    first-party packages but they are NOT client libraries for an Ather API, so no
+    `SDKs` pointer is wired in apis.yml (doing so would misrepresent the ergonomics
+    of a non-existent developer API).
+packages:
+- language: rust
+  registry: crates.io
+  name: rumqtt
+  version: 0.31.0
+  url: https://crates.io/crates/rumqtt
+  install: cargo add rumqtt
+  repository: https://github.com/AtherEnergy/rumqtt
+  description: Pure Rust MQTT client for IoT needs.
+  official: true
+  api_client: false
+  status: archived
+  x-evidence:
+    fetched: '2026-07-31'
+    url: https://crates.io/api/v1/crates/rumqtt
+    http_status: 200
+- language: r
+  registry: cran
+  name: ggTimeSeries
+  url: https://cran.r-project.org/web/packages/ggTimeSeries/index.html
+  install: install.packages("ggTimeSeries")
+  repository: https://github.com/AtherEnergy/ggTimeSeries
+  description: Time series visualisation package for ggplot2.
+  official: true
+  api_client: false
+  x-evidence:
+    fetched: '2026-07-31'
+    url: https://cran.r-project.org/package=ggTimeSeries
+    http_status: 200
+- language: javascript
+  registry: npm
+  name: sails-helper
+  version: 3.2.0
+  url: https://www.npmjs.com/package/sails-helper
+  install: npm install sails-helper
+  repository: https://github.com/AtherEnergy/sails-helper
+  description: Sails.js helper and middleware functions.
+  official: false
+  api_client: false
+  note: >-
+    Mirrored in the AtherEnergy GitHub org, but the npm package metadata points at a
+    personal repository (aptro/sails-helper); first-party attribution not confirmed.
+  x-evidence:
+    fetched: '2026-07-31'
+    url: https://registry.npmjs.org/sails-helper
+    http_status: 200
+source_only:
+- name: ACAN
+  url: https://github.com/AtherEnergy/ACAN
+  language: c
+  description: Ather Control Area Network — utility for CAN bus communication.
+  registry: null
+  official: true
+- name: asdk
+  url: https://github.com/AtherEnergy/asdk
+  language: c
+  description: >-
+    Application Software Development Kit — embedded development platform for writing
+    microcontroller-agnostic applications.
+  registry: null
+  official: true
+- name: ravro
+  url: https://github.com/AtherEnergy/ravro
+  language: rust
+  description: Work-in-progress pure Rust implementation of the Avro specification.
+  registry: null
+  official: true
+  note: not published to crates.io (404 on 2026-07-31)
+registries_probed:
+- crates.io
+- npm
+- PyPI
+- CRAN
+- Maven Central
+- NuGet
+- pkg.go.dev
+- RubyGems
+- Packagist

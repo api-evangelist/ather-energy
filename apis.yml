@@ -1,23 +1,130 @@
 aid: ather-energy
 name: Ather Energy
-description: 'Ather Energy is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Ather Energy Limited is a Bengaluru-based Indian electric two-wheeler
+  manufacturer founded in 2013 by Tarun Mehta and Swapnil Jain. It designs and builds
+  connected electric scooters — the Ather 450 series (450S, 450X, 450 Apex) and the
+  family-oriented Rizta — around AtherStack, its proprietary in-house vehicle software
+  architecture delivered to vehicles over the air. Ather also operates Ather Grid,
+  India''s largest two-wheeler fast-charging network, alongside a retail, service,
+  accessories and smart-helmet ecosystem. Ather publishes no public developer API,
+  OpenAPI, GraphQL or MCP surface: its machine-readable public footprint is a curated
+  llms.txt for AI agents, a named-crawler robots.txt allowlist, and an open-source
+  GitHub organisation of embedded and infrastructure libraries (ACAN, ASDK, rumqtt).'
+image: https://www.atherenergy.com/images/logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/ather-energy/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-07-31'
 modified: '2026-07-31'
+x-enrichment:
+  date: '2026-07-31'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Electric Vehicles
+- Automotive
+- Transportation
+- Manufacturing
+- Energy
+- EV Charging
+- Mobility
+- Internet of Things
+- India
+apis:
+- name: Ather Shop — UCP Shopping Service (MCP)
+  description: 'The only machine-callable API surface Ather Energy exposes. Ather''s
+    commerce host advertises a Universal Commerce Protocol merchant profile at
+    /.well-known/ucp declaring an MCP shopping endpoint under the merchant identity
+    "Ather Shop" (merchant_origin shop.atherenergy.com), with capabilities for catalog
+    search and lookup, cart, checkout, fulfillment, discount and order, plus Google Pay
+    and Shopify card payment handlers. The MCP server is provided by the Shopify
+    platform; the merchant profile, catalog, payment configuration and host are Ather''s.
+    Anonymous tools/list is refused (HTTP 422, invalid_profile_url) — a registered UCP
+    agent profile URI is required. Checkout completion requires explicit buyer approval.'
+  humanURL: https://shop.atherenergy.com/agents.md
+  baseURL: https://shop.atherenergy.com/api/ucp/mcp
+  tags:
+  - Commerce
+  - Shopping
+  - MCP
+  - Universal Commerce Protocol
+  - Agents
+  properties:
+  - type: MCPServer
+    url: mcp/ather-energy-mcp.yml
+  - type: Documentation
+    url: https://shop.atherenergy.com/agents.md
+  - type: WellKnown
+    name: UCP merchant profile
+    url: well-known/ather-energy-shop-ucp.json
+  - type: Conventions
+    url: conventions/ather-energy-conventions.yml
+  - type: AgenticAccess
+    url: agentic-access/ather-energy-agentic-access.yml
+  - type: TermsOfService
+    url: https://shop.atherenergy.com/policies/terms-of-service
+  - type: PrivacyPolicy
+    url: https://shop.atherenergy.com/policies/privacy-policy
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/ather-energy-domain-security.yml
 - type: Website
+  url: https://www.atherenergy.com/
+- type: About
+  url: https://www.atherenergy.com/about
+- type: Blog
+  url: https://www.atherenergy.com/blog
+- type: Support
+  url: https://www.atherenergy.com/contact
+- type: FAQ
+  url: https://www.atherenergy.com/faq
+- type: Community
+  url: https://www.atherenergy.com/community
+- type: Pricing
+  url: https://www.atherenergy.com/electric-scooter-all-models
+- type: TermsOfService
+  url: https://www.atherenergy.com/terms
+- type: PrivacyPolicy
+  url: https://www.atherenergy.com/policy
+- type: GitHubOrganization
+  url: https://github.com/AtherEnergy
+- type: Careers
+  url: https://careers.atherenergy.com/
+- type: InvestorRelations
+  url: https://www.atherenergy.com/investor-relations
+- type: Security
+  url: https://www.atherenergy.com/bug-bounty
+- type: VulnerabilityDisclosure
+  url: security/ather-energy-vulnerability-disclosure.yml
+- type: LLMsTxt
+  name: Ather Energy llms.txt
+  url: llms/ather-energy-llms.txt
+- type: LLMsTxt
+  name: Ather Shop agent instructions (llms.txt / agents.md)
+  url: llms/ather-energy-shop-llms.txt
+- type: WellKnown
+  url: well-known/ather-energy-well-known.yml
+- type: MCPServer
+  name: Ather Shop UCP shopping service
+  url: mcp/ather-energy-mcp.yml
+- type: AgenticAccess
+  url: agentic-access/ather-energy-agentic-access.yml
+- type: Conventions
+  url: conventions/ather-energy-conventions.yml
+- type: Conformance
+  url: conformance/ather-energy-conformance.yml
+- type: Packages
+  url: packages/ather-energy-packages.yml
+- type: Profile
+  name: Forge Global secondary-market listing
   url: https://forgeglobal.com/ather-energy_stock/
