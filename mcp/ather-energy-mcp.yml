@@ -18,26 +18,22 @@ server:
   tool_schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
   platform: Shopify
   first_party: partial
-  note: >-
-    This is a real, live MCP endpoint served from an Ather-owned host
-    (shop.atherenergy.com) and advertised by Ather's own /.well-known/ucp merchant
-    profile and /llms.txt. The MCP server itself is provided by the Shopify commerce
-    platform rather than written by Ather — the merchant profile, the store catalog,
-    the payment handlers and the merchant identity are Ather's; the tool surface and
-    its schemas are UCP/Shopify's. It is the ONLY machine-callable API surface
-    Ather Energy exposes anywhere. Ather publishes no developer API of its own.
+  note: This is a real, live MCP endpoint served from an Ather-owned host (shop.atherenergy.com) and advertised
+    by Ather's own /.well-known/ucp merchant profile and /llms.txt. The MCP server itself is provided
+    by the Shopify commerce platform rather than written by Ather — the merchant profile, the store catalog,
+    the payment handlers and the merchant identity are Ather's; the tool surface and its schemas are UCP/Shopify's.
+    It is the ONLY machine-callable API surface Ather Energy exposes anywhere. Ather publishes no developer
+    API of its own.
 introspection:
   tools_list_attempted: true
   http_status: 422
   error_code: -32001
   error: UCP discovery failed — invalid_profile_url ("Missing profile uri")
   gated: true
-  gate: >-
-    The endpoint requires a registered UCP agent profile URI on the request before it
-    will answer initialize or tools/list. Anonymous introspection is refused, so the
-    real per-tool inputSchema could not be captured. Tool names and descriptions below
-    come from Ather's own published /llms.txt and /agents.md; their input contracts are
-    defined by the UCP shopping OpenRPC schema referenced in the merchant profile.
+  gate: The endpoint requires a registered UCP agent profile URI on the request before it will answer
+    initialize or tools/list. Anonymous introspection is refused, so the real per-tool inputSchema could
+    not be captured. Tool names and descriptions below come from Ather's own published /llms.txt and /agents.md;
+    their input contracts are defined by the UCP shopping OpenRPC schema referenced in the merchant profile.
 tools:
 - name: search_catalog
   description: Find products in the Ather Shop catalog matching a buyer's intent.
@@ -79,23 +75,30 @@ payment_handlers:
   version: '2026-01-11'
   merchant_name: Ather Shop
   merchant_origin: shop.atherenergy.com
-  card_networks: [VISA, MASTERCARD, AMEX, DISCOVER]
+  card_networks:
+  - VISA
+  - MASTERCARD
+  - AMEX
+  - DISCOVER
 - id: shopify.card
   handler: dev.shopify.card
   version: '2026-01-15'
-  card_brands: [visa, master, american_express, discover, diners_club]
+  card_brands:
+  - visa
+  - master
+  - american_express
+  - discover
+  - diners_club
 human_in_the_loop:
   required: true
-  rule: >-
-    "Checkout requires human approval. Agents must not complete payment without
-    explicit buyer consent." — published verbatim at https://shop.atherenergy.com/llms.txt
+  rule: '"Checkout requires human approval. Agents must not complete payment without explicit buyer consent."
+    — published verbatim at https://shop.atherenergy.com/llms.txt'
 rate_limits:
   documented: true
   detail: The MCP endpoint is rate-limited per IP; agents are instructed to back off on 429.
 read_only_surface:
-  note: >-
-    Shopify's unauthenticated JSON endpoints on the same host, documented by Ather's
-    own agents.md. No OpenAPI is published for them.
+  note: Shopify's unauthenticated JSON endpoints on the same host, documented by Ather's own agents.md.
+    No OpenAPI is published for them.
   endpoints:
   - GET /collections/all
   - GET /products/{handle}
@@ -117,6 +120,14 @@ x-evidence:
     http_status: 200
     content_type: text/markdown
   - url: https://shop.atherenergy.com/api/ucp/mcp
-    method: 'POST tools/list'
+    method: POST tools/list
     http_status: 422
     content_type: application/json
+deployment:
+  mode: remote
+  endpoint: https://shop.atherenergy.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
