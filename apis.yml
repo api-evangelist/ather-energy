@@ -10,6 +10,17 @@ description: 'Ather Energy Limited is a Bengaluru-based Indian electric two-whee
   OpenAPI, GraphQL or MCP surface: its machine-readable public footprint is a curated
   llms.txt for AI agents, a named-crawler robots.txt allowlist, and an open-source
   GitHub organisation of embedded and infrastructure libraries (ACAN, ASDK, rumqtt).'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.atherenergy.com/images/logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/ather-energy/refs/heads/main/apis.yml
 x-type: company
