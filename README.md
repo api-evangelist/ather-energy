@@ -64,33 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Ather Energy Limited is a Bengaluru-based Indian electric two-wheeler manufacturer founded in 2013 by Tarun Mehta and Swapnil Jain. It builds connected electric scooters — the Ather 450 series (450S, 450X, 450 Apex) and the family-oriented Rizta — around AtherStack, its proprietary in-house vehicle software architecture delivered over the air, and operates Ather Grid, India's largest two-wheeler fast-charging network.
+Ather Energy Limited is a Bengaluru-based Indian electric two-wheeler manufacturer founded in 2013 by Tarun Mehta and Swapnil Jain. It designs and builds connected electric scooters — the Ather 450 series (450S, 450X, 450 Apex) and the family-oriented Rizta — around AtherStack, its proprietary in-house vehicle software architecture delivered to vehicles over the air. Ather also operates Ather Grid, India's largest two-wheeler fast-charging network, alongside a retail, service, accessories and smart-helmet ecosystem. Ather publishes no public developer API, OpenAPI, GraphQL or MCP surface: its machine-readable public footprint is a curated llms.txt for AI agents, a named-crawler robots.txt allowlist, and an open-source GitHub organisation of embedded and infrastructure libraries (ACAN, ASDK, rumqtt).
 
-- https://www.atherenergy.com/
-- https://github.com/AtherEnergy
+**Areas:** Company · Electric Vehicles · Automotive · Transportation · Manufacturing · Energy · EV Charging · Mobility · IoT · India
 
-## API surface
+## Ather Energy on APIs.io
 
-Ather publishes **no developer API** — no OpenAPI, Swagger, GraphQL, AsyncAPI, gRPC or webhook contract exists on any Ather host, and no `developer.`/`docs.`/`api.` subdomain resolves.
+Everything profiled for Ather Energy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ather-energy/](https://apis.io/providers/ather-energy/)** — or go straight to one of the APIs or properties below.
 
-The one machine-callable surface is on the commerce host: `shop.atherenergy.com` advertises a
-[Universal Commerce Protocol](https://ucp.dev) merchant profile at `/.well-known/ucp` declaring an **MCP
-shopping endpoint** at `https://shop.atherenergy.com/api/ucp/mcp`. Anonymous `tools/list` is refused
-(HTTP 422, `invalid_profile_url`) — a registered UCP agent profile is required. The server is provided by
-the Shopify platform; the merchant profile, catalog, payment handlers and host are Ather's.
+### APIs (1)
 
-Ather also publishes a curated `/llms.txt` on the corporate host and a `robots.txt` that explicitly allows
-GPTBot, ChatGPT-User, Google-Extended, ClaudeBot and PerplexityBot while blocking CCBot.
+- [Ather Shop — UCP Shopping Service (MCP)](https://apis.io/apis/ather-energy/ather-shop-ucp-shopping-service-mcp/) — The only machine-callable API surface Ather Energy exposes. Ather's commerce host advertises a Universal Commerce Protocol merchant profile at…
 
-## Artifacts
+### Published properties
 
-| Dir | What |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Ather Shop — Universal Commerce Protocol (UCP) shopping service](https://apis.io/servers/ather-energy/ather-shop-ucp/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Ather Energy Agentic Access](https://apis.io/agentic-access/ather-energy/ather-energy-agentic-access/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ather Energy Domain Security](https://apis.io/security/ather-energy/ather-energy-domain-security/)
+- [Ather Energy Vulnerability Disclosure](https://apis.io/security/ather-energy/ather-energy-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.atherenergy.com/)
+- [Pricing](https://www.atherenergy.com/electric-scooter-all-models)
+- [Support](https://www.atherenergy.com/contact)
+- [Blog](https://www.atherenergy.com/blog)
+- [Security](https://www.atherenergy.com/bug-bounty)
+- [Terms of service](https://www.atherenergy.com/terms)
+- [Privacy policy](https://www.atherenergy.com/policy)
+- [GitHub](https://github.com/AtherEnergy)
+
+## API Evangelist rating
+
+**Kin Score 20.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `llms/` | Corporate `llms.txt`, plus the Ather Shop `llms.txt` and `agents.md` (all verbatim) |
-| `well-known/` | Well-known probe index + the verbatim UCP merchant profile |
-| `mcp/` | The Ather Shop UCP/MCP shopping service manifest |
-| `agentic-access/` | Published agent-execution contract (human-in-the-loop on checkout) |
-| `conventions/` | Runtime semantics for the UCP/MCP surface — versioning, rate limits, error envelope |
-| `conformance/` | Standards Ather does and does not conform to |
-| `packages/` | First-party open-source packages (no API client SDKs — there is no API) |
-| `security/` | Domain security probe + the Responsible Vulnerability Disclosure Program |
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 31.6 |
+
+**Agent readiness 10.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | yes |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 20.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ather-energy/](https://apis.io/providers/ather-energy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ather Energy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ather-energy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
